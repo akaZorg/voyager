@@ -23,7 +23,8 @@ class VoyagerAuthController extends Controller
     public function postLogin(Request $request)
     {
         // Hacky, for using a different username name at the UI issue #1993.
-        $request->merge(['email' => $request["login_email"]]);
+        $request->merge(['email'    => $request["login_email"]]);
+        $request->merge(['password' => $request["login_password"]]);
 
         $this->validateLogin($request);
 
